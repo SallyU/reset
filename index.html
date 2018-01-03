@@ -88,6 +88,8 @@
 	<link rel="stylesheet" href="public/css/reset.css" />
 	<link rel="stylesheet" href="public/css/style.css" />
 
+	<!--if you need swiper use it's CDN source -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" />
 
 	<!-- font-awesome CDN
 	 if you need this
@@ -95,12 +97,13 @@
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
+	<!----------------------------------------------------use them before core jquery loaded-------------------------------------------------------------------->
 	<!-- Lea Verou's prefixfree (http://leaverou.github.io/prefixfree/), lets you use un-prefixed properties in your CSS files -->
 	<script src="public/js/libs/prefixfree.min.js"></script>
-
 	<!-- This is a minimized, base version of Modernizr. (http://modernizr.com)
 		  You will need to create new builds to get the detects you need. -->
 	<script src="public/js/libs/modernizr-3.2.0.base.js"></script>
+	<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 	<!-- Twitter: see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/summary for details -->
 	<meta name="twitter:card" content="">
@@ -180,6 +183,10 @@
 <!-- this is where we put our custom functions -->
 <!-- don't forget to concatenate and minify for production -->
 <script src="public/js/functions.js"></script>
+
+<!--if you need swiper use it's CDN source -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+
 <script>$(document).ready(initPage);</script>
 
 <!-- Asynchronous baidu 360 sogou google analytics; -->

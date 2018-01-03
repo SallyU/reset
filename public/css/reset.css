@@ -1,5 +1,6 @@
+@charset "utf-8";
 /*
-	HTML5 Reset :: style.css
+	HTML5 Reset :: reset.css
 	----------------------------------------------------------
 	We have learned much from/been inspired by/taken code where offered from:
 
@@ -11,6 +12,10 @@
 
 /* Let's default this puppy out
 -------------------------------------------------------------------------------*/
+/* A Linux- and Windows-friendly sans-serif font stack: http://prospects.mhurrell.co.uk/post/updating-the-helvetica-font-stack */
+/* Using local fonts? Check out Font Squirrel's webfont generator: http://www.fontsquirrel.com/tools/webfont-generator */
+
+body {font: 12px/180% "Microsoft YaHei", Tahoma, "Simsun", Helmet, Freesans, sans-serif;}
 
 html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
 	margin: 0;
@@ -22,12 +27,16 @@ html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquot
 	background: transparent;
 }
 
-main, article, aside, figure, footer, header, nav, section, details, summary {display: block;}
+main, article, aside, details, figcaption, figure, footer, header,  hgroup, menu,nav, section, summary {display: block;}
 
-/* Handle box-sizing while better addressing child elements:
-   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	/* Handle box-sizing while better addressing child elements:
+       http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 html {
 	box-sizing: border-box;
+	width: 100%;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight: rgba(0, 0, 0, 0);
+	-webkit-text-size-adjust: none; /** forbidden iPhone font-size enlarge **/
 }
 
 *,
@@ -35,6 +44,9 @@ html {
 *:after {
 	box-sizing: inherit;
 }
+
+/* We like off-black for text. */
+body, select, input, textarea {color: #333;}
 
 /* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
 
@@ -60,16 +72,17 @@ html {overflow-y: scroll;}
 /* we use a lot of ULs that aren't bulleted.
 	you'll have to restore the bullets within content,
 	which is fine because they're probably customized anyway */
-ul {list-style: none;}
+ul, li {list-style: none;}
 
+/* let's give blockquotes *some* default styling, because unstyled blockquotes are dangerous */
 blockquote, q {quotes: none;}
-
+blockquote {padding: 16px; background: #eee;}
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {content: ''; content: none;}
 
-a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent;text-decoration: none;border: none;}
 
 del {text-decoration: line-through;}
 
@@ -82,7 +95,7 @@ td {font-weight: normal; vertical-align: top;}
 
 hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
 
-input, select {vertical-align: middle;}
+label, input, select {vertical-align: middle;}
 
 pre {
     white-space: pre; /* CSS2 */
@@ -90,7 +103,9 @@ pre {
     white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
     word-wrap: break-word; /* IE */
 }
-
+/* Mozilla dosen't style placeholders by default */
+input:-moz-placeholder { color:#a9a9a9; }
+textarea:-moz-placeholder { color:#a9a9a9; }
 input[type="radio"] {vertical-align: text-bottom;}
 input[type="checkbox"] {vertical-align: bottom;}
 .ie7 input[type="checkbox"] {vertical-align: baseline;}
@@ -122,12 +137,29 @@ input[type=submit],
 input[type=file],
 button {cursor: pointer;}
 
+input[type="button"], input[type="submit"], input[type="reset"], input[type="text"], select, textarea {
+	font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif;
+}
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+*:focus {
+	outline: none;
+}
+
+
 /* Webkit browsers add a 2px margin outside the chrome of form elements */
 button, input, select, textarea {margin: 0;}
 
 /* make buttons play nice in IE */
 button,
 input[type=button] {width: auto; overflow: visible;}
+
+textarea, select, input {
+	resize: none;
+	border-radius: 0; /* mobile-select set*/
+}
 
 /* scale images in IE7 more attractively */
 .ie7 img {-ms-interpolation-mode: bicubic;}
@@ -138,4 +170,24 @@ input[type=button] {width: auto; overflow: visible;}
 */
 
 /* let's clear some floats */
-.clearfix:after { content: " "; display: block; clear: both; }
+.clearfix:before, .clearfix:after {content: " ";display: block;visibility: hidden;height: 0;line-height: 0;font-size: 0;}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;}
+.clear {clear: both;height: 0;overflow: hidden;}
+
+/*floats*/
+.fl {float: left;}
+.fr {float: right;}
+
+
+
+
+/* Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301) */
+::-moz-selection{}
+::selection {}
+
+/*	j.mp/webkit-tap-highlight-color */
+a:link {}
+
+ins {}
+mark {}

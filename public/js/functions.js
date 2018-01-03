@@ -15,4 +15,4 @@ function initPage(){
 
 	console.log('page loaded');
 
-};
+}
